@@ -10,18 +10,16 @@
             <div class="row">
               <div class="col-md-9 col-lg-8 mx-auto">
                 <h3 class="login-heading mb-4">Bem vindo(a) de volta ao Cardapi<strong class="text-danger">ON</strong>!</h3>
-                <form method="POST" action="{{ route('login') }}">
+                <form method="post" action="{{ route('/logar') }}">
                      @csrf
                     <div class="form-label-group">
-                        <label for="Email">Email</label>
-                        <input type="email" id="Email" class="form-control" placeholder="Email address" required autofocus>
-                        
+                      <input type="email" id="email" name="email" class="form-control" placeholder="Seu email aqui" value="" required>
+                      <label for="email">Email</label>  
                     </div>
 
                     <div class="form-label-group">
-                        <label for="Senha">Senha</label>
-                        <input type="password" id="Senha" class="form-control" placeholder="Password" required>
-                        
+                      <input type="password" id="senha" name="senha" class="form-control" placeholder="Sua senha secreta" value="" required>
+                      <label for="senha">Senha</label>     
                     </div>
 
                     <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Entrar</button>

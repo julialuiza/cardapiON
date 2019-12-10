@@ -10,7 +10,7 @@
 
 .bg-image {
   background-image: url('../imgs/login.png');
-  background-size: contain;
+  background-size: cover;
   background-position: center;
 }
 

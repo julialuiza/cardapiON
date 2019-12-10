@@ -11,17 +11,27 @@
 |
 */
 
+/* rota para pagina inicial */
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('layouts/home');
 });
 
-Route::get('register', function () {
-    return view('auth/register');
-});
+/* rotas para pagina de cadastro e login */
+Route::get('cadastro', function (){
+	return view('auth/register');
+})->name('cadastro');
 
 Route::get('login', function () {
     return view('auth/login');
-});
+})->name('login');
+
+/* rotas para cadastrar usuario e realizar login */
+Route::post('/store','UserController@store')->name('/store');
+Route::post('/logar','UserController@logar')->name('/logar');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+

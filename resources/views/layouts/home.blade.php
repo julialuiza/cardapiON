@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">CADASTRAR-SE</a>
+            <a class="nav-link" href="{{ route('cadastro') }}">CADASTRAR-SE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('login') }}">ENTRAR</a>
