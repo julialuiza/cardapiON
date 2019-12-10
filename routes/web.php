@@ -31,6 +31,9 @@ Route::get('login', function () {
 Route::post('/store','UserController@store')->name('/store');
 Route::post('/logar','UserController@logar')->name('/logar');
 
+/* rota para feed */
+Route::get('/feed','EstabelecimentoController@index')->name('/feed');
+
 Auth::routes();
 
 

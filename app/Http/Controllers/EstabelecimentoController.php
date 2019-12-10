@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use App\User;
+use App\Estabelecimento; 
 
 use Auth;
 
-class UserController extends Controller
+class EstabelecimentoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+       return view('estabelecimento/index');
     }
 
     /**
@@ -38,30 +37,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       $nome =  $request->input('nome');
-       $email = $request->input('email');
-       $senha =  Hash::make($request->input('senha'));
-
-       $user = new User();
-       $user->name = $nome;
-       $user->email = $email;
-       $user->password = $senha;
-       $user->save();
-
-       return redirect('/home');
+        //
     }
-
-    /** login **/
-    public function logar(Request $request){
-
-        $email = $request->input('email');
-        $senha = $request->input('senha'); 
-
-        $user = User::where('email', $email)->first();
-        if($user && Hash::check($senha, $user->password)){
-           return redirect('/feed');
-        }
-    }   
 
     /**
      * Display the specified resource.
