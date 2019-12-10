@@ -34,6 +34,13 @@ Route::post('/logar','UserController@logar')->name('/logar');
 /* rota para feed */
 Route::get('/feed','EstabelecimentoController@index')->name('/feed');
 
+
+Route::get('/cadastroEstabelecimento','EstabelecimentoController@create')->name('/cadastroEstabelecimento');
+
+
+Route::get('/cadastroCardapio','CardapioController@create')->name('/cadastroCardapio');
+
+
 Auth::routes();
 
 

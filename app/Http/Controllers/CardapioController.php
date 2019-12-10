@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Estabelecimento; 
 
-use Auth;
-
-class EstabelecimentoController extends Controller
+class CardapioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +13,7 @@ class EstabelecimentoController extends Controller
      */
     public function index()
     {
-       return view('estabelecimento/index');
+        //
     }
 
     /**
@@ -26,7 +23,7 @@ class EstabelecimentoController extends Controller
      */
     public function create()
     {
-        return view('estabelecimento/create');
+        return view('cardapio/create');
     }
 
     /**
