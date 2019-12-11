@@ -1,20 +1,20 @@
 # CardapiOn
 
-1)Entra no diretorio do projeto
+1) Entra no diretorio do projeto
 
-2)Npm install
+2) npm install
 
-3)Composer update
+3) composer update
 
-4)Composer install
+4) composer install
 
-5)Executar o comando “cp env.example .env”
+5) Executar o comando “cp env.example .env”
 
-6)Php artisan key:generate
+6) php artisan key:generate
 
-7)Php artisan serve
+7) php artisan serve
 
-8)Localhost:8000/ # ou provavelmente 8000
+8) Localhost:8000/ # ou provavelmente 8000
 
 9) Saiba mais sobre o banco em: http://dontpad.com/eltonjr
 
