@@ -1,4 +1,4 @@
-# CardapiOn
+# Tutorial de como rodar o projeto
 
 1) Entra no diretorio do projeto
 
