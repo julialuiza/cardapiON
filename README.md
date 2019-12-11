@@ -1,3 +1,23 @@
+# CardapiOn
+
+1)Entra no diretorio do projeto
+
+2)Npm install
+
+3)Composer update
+
+4)Composer install
+
+5)Executar o comando “cp env.example .env”
+
+6)Php artisan key:generate
+
+7)Php artisan serve
+
+8)Localhost:8000/ # ou provavelmente 8000
+
+9) Saiba mais sobre o banco em: http://dontpad.com/eltonjr
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
