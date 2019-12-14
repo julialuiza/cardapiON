@@ -8,7 +8,13 @@
   min-height: 100vh;
 }
 
-.bg-image {
+.bg-image-login{
+  background-image: url('../imgs/login.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-image-register{
   background-image: url('../imgs/welcome.png');
   background-size: cover;
   background-position: center;

@@ -5,16 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    
+
+    <script type="text/javascript" src="{{url('/js/app.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/app.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url('/css/estilo.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/estiloForm.css') }}" />
 
 </head>
 <body>
@@ -28,23 +26,27 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <a href="#" class="nav-link">ACESSAR RELATÓRIOS</a>
+          </li>
+          <li class="nav-item dropdown">
             <a id="cadDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 CADASTRAR
             </a>
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cadDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}">
+            <div class="dropdown-menu" aria-labelledby="cadDropdown">
+                <a class="dropdown-item" href="{{ route('cadastroEstabelecimento') }}">
                   Cadastrar estabelecimento
                 </a>
-                <a class="dropdown-item" href="{{ route('logout') }}">
-                  Cadastrar cardápio
+                <a class="dropdown-item" href="{{ route('cadastroCardapio')}}">
+                  Cadastrar foto de cardápio
+                </a>
+                <a class="dropdown-item" href="{{ route('cadastroProduto')}}">
+                  Cadastrar prato
                 </a>
             </div>
-            <!-- <a class="nav-link" href="{{ route('cadastro') }}">CADASTRAR</a> -->
           </li>
           <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                nome <span class="caret"></span>
+                Bem vindo (a) ! <span class="caret"></span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -64,7 +66,7 @@
     </div>
   </nav>
 
-  <main class="py-4">
+  <main class="py-4 bg-white">
     @yield('content')
   </main>
 

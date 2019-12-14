@@ -5,13 +5,13 @@
 <div class="container mt-3 d-flex justify-content-center">
 	<div class="row mt-3">
 	  <div class="col-12">
-		 <h3 class="text-center">Cardárpios Disponíveis</h3>      
+		 <h3 class="text-center">Cardápios Disponíveis</h3>      
 	  </div>
 	  <div class="col-12">
 		<!-- form de busca-->
 		<form method="POST" action="#">
 		  <input class="form-control" type="search" placeholder="Nome do estabelecimento, tipo de comida, pratos.." aria-label="Pesquisar">
-		  <button class="btn btn-sm btn-warning btn-block" type="submit">Pesquisar</button>
+		  <button class="btn btn-sm btn-warning btn-block" type="submit"><b>PESQUISAR</b></button>
 		</form>
 	  </div> 
 	</div>

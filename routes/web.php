@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 /* rota para pagina inicial */
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -31,17 +33,18 @@ Route::get('login', function () {
 Route::post('/store','UserController@store')->name('/store');
 Route::post('/logar','UserController@logar')->name('/logar');
 
-/* rota para feed */
+/* rota para pagina de feed */
 Route::get('/feed','EstabelecimentoController@index')->name('/feed');
 
 
-Route::get('/cadastroEstabelecimento','EstabelecimentoController@create')->name('/cadastroEstabelecimento');
+/* rota para gerenciar estabelecimento */
+Route::get('/cadastroEstabelecimento','EstabelecimentoController@create')->name('cadastroEstabelecimento');
 
+/* rota para gerenciar cardapios */
+Route::get('/cadastroCardapio','CardapioController@create')->name('cadastroCardapio');
 
-Route::get('/cadastroCardapio','CardapioController@create')->name('/cadastroCardapio');
-
-
-Auth::routes();
+/* rota para gerenciar produtos (pratos, etc) */
+Route::get('/cadastroProduto','ProdutoController@create')->name('cadastroProduto');
 
 
 

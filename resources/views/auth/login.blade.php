@@ -3,7 +3,7 @@
 @section('content')
  <div class="container-fluid">
     <div class="row no-gutter">
-      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image-login"></div>
       <div class="col-md-8 col-lg-6">
         <div class="login d-flex align-items-center py-5">
           <div class="container">
@@ -24,7 +24,6 @@
 
                     <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Entrar</button>
                     <div class="text-center">
-                    <a class="small" href="#">Esqueci minha senha</a></div>
                 </form>
               </div>
             </div>
