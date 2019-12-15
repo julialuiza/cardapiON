@@ -14,9 +14,9 @@ class EstabelecimentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-       return view('estabelecimento/index');
+    public function index(){
+        $estabelecimentos = Estabelecimento::orderBy('nome', 'asc')->get();
+        return view('estabelecimento/index', compact('estabelecimentos'));
     }
 
     /**
@@ -37,7 +37,17 @@ class EstabelecimentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $estabelecimento = new Estabelecimento();
+        $estabelecimento->nome = $request->input('nome');
+        $estabelecimento->endereco = $request->input('endereco');
+        $estabelecimento->horario_inicial = $request->input('hrInicio');
+        $estabelecimento->horario_final = $request->input('hrFim');
+        $estabelecimento->dias_funcionamento = $request->input('dias_funcionamento');
+        $estabelecimento->classe = $request->input('classe');
+        
+        $estabelecimento->save();
+
+        return redirect('/feed');
     }
 
     /**

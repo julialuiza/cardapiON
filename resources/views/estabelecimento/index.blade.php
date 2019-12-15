@@ -5,7 +5,7 @@
 <div class="container mt-3 d-flex justify-content-center">
 	<div class="row mt-3">
 	  <div class="col-12">
-		 <h3 class="text-center">Cardápios Disponíveis</h3>      
+		 <h2 class="text-center">Estabelecimentos Disponíveis</h2>      
 	  </div>
 	  <div class="col-12">
 		<!-- form de busca-->
@@ -20,65 +20,29 @@
 
 <div class="container mt-3">
 	<div class="row mt-3">
-		<div class="col ">
-		  <div class="card-deck">
-			<div class="card">
-			  <img src="imgs/estab.png" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Nome Restaurante</h5>
-				<p class="card-text">
-				  <b>Localização:</b> {} <br>
-				  <b>Nota média:</b> {}
-				</p>
-			  </div>
-			  <div class="card-footer bg-black">
-				<button class="btn btn-sm btn-block btn-outline-dark text-white">VER MAIS</button>
-			  </div>
-			</div>
-
-			<div class="card">
-			  <img src="imgs/estab.png" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Nome Restaurante</h5>
-				<p class="card-text">
-				  <b>Localização:</b> {} <br>
-				  <b>Nota média:</b> {}
-				</p>
-			  </div>
-			  <div class="card-footer bg-black">
-				<button class="btn btn-sm btn-block btn-outline-dark text-white">VER MAIS</button>
-			  </div>
-			</div>
-
-			<div class="card">
-			  <img src="imgs/estab.png" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Nome Restaurante</h5>
-				<p class="card-text">
-				  <b>Localização:</b> {} <br>
-				  <b>Nota média:</b> {}
-				</p>
-			  </div>
-			  <div class="card-footer bg-black">
-				<button class="btn btn-sm btn-block btn-outline-dark text-white">VER MAIS</button>
-			  </div>
-			</div>
-
-			<div class="card">
-			  <img src="imgs/estab.png" class="card-img-top" alt="...">
-			  <div class="card-body">
-				<h5 class="card-title">Nome Restaurante</h5>
-				<p class="card-text">
-				  <b>Localização:</b> {} <br>
-				  <b>Nota média:</b> {}
-				</p>
-			  </div>
-			  <div class="card-footer bg-black">
-				<button class="btn btn-sm btn-block btn-outline-dark text-white">VER MAIS</button>
-			  </div>
-			</div>
-		  </div>
+		<div class="col-md-3"></div>
+		<div class="col-sm-12 col-md-6">
+			@foreach($estabelecimentos as $estabelecimento)
+		  	<div class="card-deck mt-3">
+				<div class="card">
+				  <div class="card-body">
+					<h4 class="card-title">{{$estabelecimento->nome}}</h4>
+					<hr>
+					<p class="card-text">
+					  <b>Localização:</b> {{$estabelecimento->endereco}} <br>
+					  <b>Faixa de preço:</b> {{$estabelecimento->classe}} <br>
+					  <b>Nota média:</b> {{$estabelecimento->nota_media}}
+					</p>
+				  </div>
+				  <div class="card-footer bg-dark">
+					<button class="btn btn-sm btn-block bg-dark text-white">VER MAIS</button>
+				  </div>
+				</div>
+		  	</div>
+		  	@endforeach
 		</div>
+		<div class="col-md-3"></div>
 	</div>
 </div>
+
 @endsection

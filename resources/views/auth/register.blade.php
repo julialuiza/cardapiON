@@ -25,11 +25,6 @@
                     </div>
 
                     <div class="form-label-group">
-                      <input type="text" id="bio" name="bio"  class="form-control" placeholder="Bio" value="" required autofocus>
-                      <label for="nome">Uma frase que me defina</label>
-                    </div>
-
-                    <div class="form-label-group">
                       <input type="password" id="senha" name="senha" class="form-control" placeholder="Sua senha secreta" value="" required>
                       <label for="Senha">Senha</label>
                     </div>

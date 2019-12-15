@@ -40,8 +40,12 @@ Route::get('/feed','EstabelecimentoController@index')->name('/feed');
 /* rota para gerenciar estabelecimento */
 Route::get('/cadastroEstabelecimento','EstabelecimentoController@create')->name('cadastroEstabelecimento');
 
+Route::post('salvarEstabelecimento','EstabelecimentoController@store')->name('salvarEstabelecimento');
+
 /* rota para gerenciar cardapios */
 Route::get('/cadastroCardapio','CardapioController@create')->name('cadastroCardapio');
+
+Route::post('salvarCardapio','CardapioController@store')->name('salvarCardapio');
 
 /* rota para gerenciar produtos (pratos, etc) */
 Route::get('/cadastroProduto','ProdutoController@create')->name('cadastroProduto');

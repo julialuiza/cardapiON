@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cardapio;
+use App\Estabelecimento;
 
 class CardapioController extends Controller
 {
@@ -21,9 +23,10 @@ class CardapioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('cardapio/create');
+    public function create(){
+        $estabelecimentos = Estabelecimento::orderBy('nome', 'asc')->get();
+        
+        return view('cardapio/create',compact('estabelecimentos'));
     }
 
     /**
