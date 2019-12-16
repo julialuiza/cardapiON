@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+//Auth::routes();
 
 /* rota para pagina inicial */
 Route::get('/home', 'HomeController@index')->name('home');
@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 /* rotas para pagina de cadastro e login */
-Route::get('cadastro', function (){
+Route::get('cadastro', function (){ 
 	return view('auth/register');
 })->name('cadastro');
 
@@ -32,6 +32,7 @@ Route::get('login', function () {
 /* rotas para cadastrar usuario e realizar login */
 Route::post('/store','UserController@store')->name('/store');
 Route::post('/logar','UserController@logar')->name('/logar');
+Route::get('logout', 'UserController@logout')->name('logout');;
 
 /* rota para pagina de feed */
 Route::get('/feed','EstabelecimentoController@index')->name('/feed');

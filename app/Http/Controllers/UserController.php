@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use App\User;
+use Validator,Redirect,Response;
+Use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Session;
 
-use Auth;
 
 class UserController extends Controller
 {
@@ -25,9 +27,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(array $data)
     {
-        //
+        return User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password'])
+      ]);
     }
 
     /**
@@ -36,31 +42,35 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-       $nome =  $request->input('nome');
-       $email = $request->input('email');
-       $senha =  Hash::make($request->input('senha'));
+    public function store(Request $request){
 
-       $user = new User();
-       $user->name = $nome;
-       $user->email = $email;
-       $user->password = $senha;
-       $user->save();
 
-       return redirect('/home');
+        request()->validate([
+        'name' => 'required',
+        'email' => 'required',
+        'password' => 'required|min:3',
+        ]);
+         
+        $data = $request->all();
+
+        $check = $this->create($data);
+       
+        return Redirect::to("login");
     }
 
     /** login **/
     public function logar(Request $request){
 
-        $email = $request->input('email');
-        $senha = $request->input('senha'); 
-
-        $user = User::where('email', $email)->first();
-        if($user && Hash::check($senha, $user->password)){
-           return redirect('/feed');
+        request()->validate([
+        'email' => 'required',
+        'password' => 'required',
+        ]);
+ 
+        $user = $request->only('email', 'password');
+        if (Auth::attempt($user)) {
+           return redirect()->intended('/feed');
         }
+        return Redirect::to("/feed");
     }   
 
     /**
@@ -106,5 +116,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function logout() {
+        Session::flush();
+        Auth::logout();
+        return Redirect('login');
     }
 }

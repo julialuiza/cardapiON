@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="form-label-group">
-                      <input type="password" id="senha" name="senha" class="form-control" placeholder="Sua senha secreta" value="" required>
+                      <input type="password" id="senha" name="password" class="form-control" placeholder="Sua senha secreta" value="" required>
                       <label for="senha">Senha</label>     
                     </div>
 

@@ -15,7 +15,7 @@
                  <form method="post" action="{{ route('/store') }}">
                     @csrf
                     <div class="form-label-group">
-                      <input type="text" id="nome" name="nome"  class="form-control" placeholder="Seu nome aqui" value="" required autofocus>
+                      <input type="text" id="nome" name="name"  class="form-control" placeholder="Seu nome aqui" value="" required autofocus>
                       <label for="nome">Nome</label>
                     </div>
 
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="form-label-group">
-                      <input type="password" id="senha" name="senha" class="form-control" placeholder="Sua senha secreta" value="" required>
+                      <input type="password" id="senha" name="password" class="form-control" placeholder="Sua senha secreta" value="" required>
                       <label for="Senha">Senha</label>
                     </div>
 
