@@ -6,16 +6,20 @@
     <div class="col-md-3"></div>
     <div class="col-sm-12 col-md-6">
       <h3 class="login-heading mb-4">Novo Prato <strong class="text-danger">ON</strong>!</h3>
-        <form method="post" action="{{ route('/logar') }}">
+        <form method="post" action="{{ route('salvarProduto') }}">
              @csrf
             <div class="form-label-group">
-              <input type="name" id="nome" name="nome" class="form-control" placeholder="Nome o estabelecimento" value="" required>
-              <label for="nome">Nome do Prato <span class="text-danger">*</span></label>  
+              <input type="text" id="nomePrato" name="nomePrato" class="form-control" placeholder="Nome o estabelecimento" value="" required>
+              <label for="nomePrato">Nome do Prato <span class="text-danger">*</span></label>  
             </div>
 
             <div class="form-label-group">
-              <input type="name" id="nome" name="nome" class="form-control" placeholder="Nome do estabelecimento" value="" required>
-              <label for="endereco">Selecione estabelecimento <span class="text-danger">*</span></label>  
+              <select class="custom-select" name="estabelecimento">
+                <option selected="">Selecionar estabelecimento referente ao prato/produto <span class="text-danger">*</span></option></option>
+                @foreach($estabelecimentos as $estabelecimento)
+                <option value="{{$estabelecimento->id_estabelecimento}}">{{$estabelecimento->nome}}</option>
+                @endforeach
+              </select>
             </div>
 
             <div class="form-label-group">
@@ -25,7 +29,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">R$</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest real)">
+                    <input type="text" class="form-control" name="precoProd" aria-label="Amount (to the nearest real)">
                     <div class="input-group-append">
                         <span class="input-group-text">.00</span>
                     </div>
@@ -36,7 +40,7 @@
             <div class="form-group">
                 <div class="input-group mb-3">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                    <input type="file" name="fotoProd" class="custom-file-input" id="inputGroupFile02">
                     <label class="custom-file-label" for="inputGroupFile02">Escolher foto do Prato (opcional)</label>
                 </div>
                 

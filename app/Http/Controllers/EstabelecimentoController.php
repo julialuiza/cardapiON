@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Estabelecimento; 
 
-use Auth;
 
 class EstabelecimentoController extends Controller
 {

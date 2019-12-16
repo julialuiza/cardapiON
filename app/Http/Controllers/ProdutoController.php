@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Produto;
+use App\Estabelecimento;
 
 class ProdutoController extends Controller
 {
@@ -13,7 +15,7 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
+      
     }
 
     /**
@@ -23,7 +25,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('produto/create');
+        $estabelecimentos = Estabelecimento::orderBy('nome', 'asc')->get();
+        return view('produto/create',compact('estabelecimentos'));
     }
 
     /**
@@ -34,7 +37,13 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $produto = new Produto();
+        $produto->nome = $request->input('nomePrato');
+        $produto->preco = $request->input('precoProd');
+        $produto->id_estabelecimento = $request->input('estabelecimento');
+        $produto->save();
+
+        return redirect('/feed');
     }
 
     /**
