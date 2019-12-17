@@ -41,6 +41,16 @@ class ProdutoController extends Controller
         $produto->nome = $request->input('nomePrato');
         $produto->preco = $request->input('precoProd');
         $produto->id_estabelecimento = $request->input('estabelecimento');
+        
+        //recuperar foto produto
+        if ($request->hasFile('fotoProd')){
+            $nomeFoto = uniqid(date('HisYmd'));
+            $extensao = $request->file('fotoProd')->extension();
+            $nomeSalvo = "{$nomeFoto}.{$extensao}";
+            $upload = $request->fotoProd->storeAs('produtos', $nomeSalvo);
+            $produto->foto = $nomeSalvo;
+        }
+
         $produto->save();
 
         return redirect('/feed');

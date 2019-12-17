@@ -6,7 +6,7 @@
     <div class="col-md-3"></div>
     <div class="col-sm-12 col-md-6">
       <h3 class="login-heading mb-4">Novo Prato <strong class="text-danger">ON</strong>!</h3>
-        <form method="post" action="{{ route('salvarProduto') }}">
+        <form method="post" action="{{ route('salvarProduto') }}" enctype="multipart/form-data">
              @csrf
             <div class="form-label-group">
               <input type="text" id="nomePrato" name="nomePrato" class="form-control" placeholder="Nome o estabelecimento" value="" required>
@@ -40,8 +40,8 @@
             <div class="form-group">
                 <div class="input-group mb-3">
                 <div class="custom-file">
-                    <input type="file" name="fotoProd" class="custom-file-input" id="inputGroupFile02">
-                    <label class="custom-file-label" for="inputGroupFile02">Escolher foto do Prato (opcional)</label>
+                    <input type="file" name="fotoProd" class="custom-file-input" id="fotoProd">
+                    <label class="custom-file-label" for="fotoProd">Escolher foto do Prato (opcional)</label>
                 </div>
                 
             </div>

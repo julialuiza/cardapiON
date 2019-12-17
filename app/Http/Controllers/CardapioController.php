@@ -37,7 +37,21 @@ class CardapioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $cardapio = new Cardapio();
+        $cardapio->id_estabelecimento = $request->input('estabelecimento');
+        $cardapio->id_usuario = $request->input('idUsuario');
+        //recuperar foto cardapio
+        $nomeFoto = uniqid(date('HisYmd'));
+        $extensao = $request->file('fotoCardapio')->extension();
+        $nomeSalvo = "{$nomeFoto}.{$extensao}";
+        $upload = $request->fotoCardapio->storeAs('cardapios', $nomeSalvo);
+
+        $cardapio->foto_cardapio = $nomeSalvo;
+
+        $cardapio->save();
+        
+        return redirect('/feed');
     }
 
     /**
