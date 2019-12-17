@@ -43,7 +43,9 @@ Route::post('salvarEstabelecimento','EstabelecimentoController@store')->name('sa
 Route::get('detalhesEstabelecimento/{id}', 'EstabelecimentoController@show')->name('detalheEstabelecimento');
 Route::get('avaliarEstabelecimento/{id}', 'EstabelecimentoController@avaliar')->name('avaliarEstabelecimento');
 Route::post('salvarAvaliacao', 'EstabelecimentoController@salvarAvaliacao')->name('salvarAvaliacao');
+Route::post('procurarEstabelecimento','EstabelecimentoController@procurar')->name('procurarEstabelecimento');
 
+	
 /* rota para gerenciar cardapios */
 Route::get('/cadastroCardapio','CardapioController@create')->name('cadastroCardapio');
 Route::post('salvarCardapio','CardapioController@store')->name('salvarCardapio');

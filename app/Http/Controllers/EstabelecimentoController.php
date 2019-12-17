@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Estabelecimento; 
 use App\Cardapio;
+use App\Produto;
 use App\Comentario;
 use App\Nota;
 use App\RespostasComentario;
@@ -19,6 +20,25 @@ class EstabelecimentoController extends Controller
     public function index(){
         $estabelecimentos = Estabelecimento::orderBy('nome', 'asc')->get();
         return view('estabelecimento/index', compact('estabelecimentos'));
+    }
+
+    public function procurar(Request $request){
+        $procurado = $request->input('busca');
+
+        $estabelecimento = Estabelecimento::where('nome',$procurado)->get();
+        $pratos = Produto::where('nome',$procurado)->get();
+
+        if($estabelecimento->count()>0){
+            $id = $estabelecimento[0]->id_estabelecimento;
+        }
+        else if($pratos->count()>0){
+            $id = $pratos[0]->id_estabelecimento;
+        }
+
+        $cardapios = Cardapio::where('id_estabelecimento', $id)->orderBy('created_at','desc')->get();
+        $comentarios = Comentario::where('id_estabelecimento',$id)->orderBy('created_at','desc')->get();
+
+        return view('estabelecimento/show', compact('estabelecimento','cardapios','comentarios'));
     }
 
     /**
