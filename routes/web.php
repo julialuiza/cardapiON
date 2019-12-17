@@ -57,3 +57,7 @@ Route::post('salvarProduto','ProdutoController@store')->name('salvarProduto');
 /* rota para gerenciar comentarios e respostas de comentarios */
 Route::get('acessarRespostas/{id}', 'EstabelecimentoController@detalhesComentario')->name('acessarRespostas');
 Route::post('responderComentario', 'EstabelecimentoController@responderComentario')->name('responderComentario');
+
+/* rota para relatorios */
+Route::get('relatorios','RelatorioController@index')->name('relatorios');
+Route::post('resultadoRelatorio','RelatorioController@resultadoRelatorio')->name('resultadoRelatorio');

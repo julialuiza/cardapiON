@@ -25,8 +25,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="#" class="nav-link">ACESSAR RELATÓRIOS</a>
+          <li class="nav-link" >
+           <a href="{{ route('relatorios')}}">ACESSAR RELATÓRIOS</a>
           </li>
           <li class="nav-item dropdown">
             <a id="cadDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
