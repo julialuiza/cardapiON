@@ -8,6 +8,11 @@
   min-height: 100vh;
 }
 
+.hr-custom{
+  color: #FFD700;
+  background-color: #FFD700;
+  height: 1px;
+}
 
 .bg-image-login{
   background-image: url('../imgs/login.png');

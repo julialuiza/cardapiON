@@ -39,21 +39,19 @@
 	        <div class="row">
 	        	<div class="col-md-6"></div>
 	        	<div class="col-md-6 col-sm-12">
-	        		<a href="{{route('avaliarEstabelecimento', $estab->id_estabelecimento)}}" class="btn btn-sm btn-block bg-warning text-dark" role="button">AVALIAR ESTABELECIMENTO</a>
+	        		<a href="{{route('avaliarEstabelecimento', $estab->id_estabelecimento)}}" class="btn btn-sm btn-block bg-warning text-dark" role="button"><b>AVALIAR ESTABELECIMENTO</b></a>
 	        	</div>
 	        </div>
-	        <hr>
+	        <hr class="hr-custom">
 	        <div class="row">
 	          <div class="col-md-6 mt-2 col-sm-12">
 	            <h6 class="text-center">Últimas fotos de cardápios/pratos</h6>
-
+	            <hr class="hr-custom">
 	            <!-- for each aqui fotos de cardapio e produtos-->
 	            @foreach($cardapios as $cardapio)
+
 	            <div class="col-12 text-center">
 	              <img src="{{ url('storage/cardapios/'.$cardapio->foto_cardapio) }}" width="300px">
-	              <p class="text-center ">
-	                <b>Enviado por:</b> nome usuario<br>
-	              </p>
 	              <hr width="350px">
 	            </div>
 	            @endforeach
@@ -61,27 +59,26 @@
 	          </div>
 	          <div class="col-md-6 mt-2 col-sm-12">
 	            <h6 class="text-center">Avaliações</h6>
+	            <hr class="hr-custom">
 	             <!-- for each aqui comentarios e respostas_comentario-->
+	             @foreach ($comentarios as $comentario)
+
 	              <div class="col-12 text-center">
-	                <form method="POST" action="atualizaComentarios">
-	                  <input type="hidden" id="comentarioID" name="comentarioID" value="#">
+	                <input type="hidden" id="comentarioID" name="comentarioID" value="#">
 	                  <p class="text-center text-justify">
-	                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In augue lectus, tristique et tellus sed, ullamcorper porttitor tellus. Nunc et lacus quam.
+	                   {{$comentario->conteudo}}
 	                  </p>
-	                  <p class="text-right"><b>Fulano em 19/10/2019</b><br></p>
-	                  <p class="text-left"><b>Respostas</b><br></p>
-	                  <hr>
-	                  <p class="text-left text-justify">
-	                    Lorem ipsum dolor sit amet.
-	                  </p>
-	                  <p class="text-right"><b>Fulano em 22/10/2019</b><br></p>
-	                  <hr>
-	                  <textarea id="respostaComentario" name="respostaComentario" rows="2" cols="50">
-	                  </textarea>
-	                  <a href="{{route('avaliarEstabelecimento', $estab->id_estabelecimento)}}" class="btn btn-sm btn-block bg-warning text-dark" role="button">RESPONDER COMENTÁRIO</a>
+	                  <div class="row">
+	                  	<div class="col-6">
+	                  		<a href="{{route('avaliarEstabelecimento', $estab->id_estabelecimento)}}" class="btn btn-sm btn-block bg-warning text-dark" role="button"><b>acessar respostas</b></a>
+	                  	</div>
+	                  	<div class="col-6">
+	                  		<a href="{{route('avaliarEstabelecimento', $estab->id_estabelecimento)}}" class="btn btn-sm btn-block bg-warning text-dark" role="button"><b>responder comentário</b></a>
+	                  	</div>
+	                  </div>
 	                  <hr width="350px">
-	               </form>
-	             </div>
+	              </div>
+	             @endforeach
 	          </div>
 	        </div>
 	      </div>

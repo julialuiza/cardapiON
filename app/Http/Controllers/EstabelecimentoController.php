@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Estabelecimento; 
 use App\Cardapio;
+use App\Comentario;
+use App\Nota;
 
 class EstabelecimentoController extends Controller
 {
@@ -58,13 +60,38 @@ class EstabelecimentoController extends Controller
     public function show($id)
     {
         $estabelecimento = Estabelecimento::where('id_estabelecimento', $id)->get();
-        $cardapios = Cardapio::where('id_estabelecimento', $id)->get();
+        $cardapios = Cardapio::where('id_estabelecimento', $id)->orderBy('created_at','desc')->get();
+        $comentarios = Comentario::where('id_estabelecimento',$id)->orderBy('created_at','desc')->get();
 
-        return view('estabelecimento/show', compact('estabelecimento','cardapios'));
+        return view('estabelecimento/show', compact('estabelecimento','cardapios','comentarios'));
     }
 
+    //pagina de avaliacao de estabelecimento
     public function avaliar($id){
-        
+        $estabelecimento = Estabelecimento::where('id_estabelecimento', $id)->get();
+        return view('estabelecimento/avaliar',compact('estabelecimento'));
+    }
+
+    //salvando avaliacao de estabelecimento
+    public function salvarAvaliacao(Request $request){
+        $comentario = new Comentario();
+        $comentario->conteudo = $request->input('comentario');
+        $comentario->nota = $request->input('nota');
+        $comentario->id_estabelecimento = $request->input('idEstab');
+        $comentario->id_usuario = $request->input('idUsuario');
+        $comentario->save();
+
+        $id = $request->input('idUsuario');
+        $comentarioAtual = Comentario::where('id_usuario',$id)->get();
+
+        $nota = new Nota();
+        $nota->id_usuario = $id;
+        $nota->id_comentario = $comentarioAtual[0]->id_comentario;
+        $nota->id_estabelecimento = $request->input('idEstab');
+        $nota->nota = $request->input('nota');
+        $nota->save();
+
+        return redirect('/feed');
     }
 
     /**

@@ -10,7 +10,7 @@
 	  <div class="col-12">
 		<!-- form de busca-->
 		<form method="POST" action="#">
-		  <input class="form-control" type="search" placeholder="Nome do estabelecimento, tipo de comida, pratos.." aria-label="Pesquisar">
+		  <input class="form-control" type="search" placeholder="Nome do estabelecimento, faixa de preço ($, $$, $$$, $$$$ ou $$$$$$), pratos.." aria-label="Pesquisar">
 		  <button class="btn btn-sm btn-warning btn-block" type="submit"><b>PESQUISAR</b></button>
 		</form>
 	  </div> 
