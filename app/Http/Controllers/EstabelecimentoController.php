@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Estabelecimento; 
-
+use App\Cardapio;
 
 class EstabelecimentoController extends Controller
 {
@@ -57,7 +57,14 @@ class EstabelecimentoController extends Controller
      */
     public function show($id)
     {
-        //
+        $estabelecimento = Estabelecimento::where('id_estabelecimento', $id)->get();
+        $cardapios = Cardapio::where('id_estabelecimento', $id)->get();
+
+        return view('estabelecimento/show', compact('estabelecimento','cardapios'));
+    }
+
+    public function avaliar($id){
+        
     }
 
     /**

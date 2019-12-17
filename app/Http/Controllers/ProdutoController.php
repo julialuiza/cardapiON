@@ -64,7 +64,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**

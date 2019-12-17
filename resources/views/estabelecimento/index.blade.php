@@ -35,7 +35,7 @@
 					</p>
 				  </div>
 				  <div class="card-footer bg-dark">
-					<button class="btn btn-sm btn-block bg-dark text-white">VER MAIS</button>
+				  	<a href="{{route('detalheEstabelecimento', $estabelecimento->id_estabelecimento)}}" class="btn btn-sm btn-block bg-dark text-white" role="button">VER MAIS</a>
 				  </div>
 				</div>
 		  	</div>
