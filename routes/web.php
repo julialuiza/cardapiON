@@ -52,5 +52,6 @@ Route::post('salvarCardapio','CardapioController@store')->name('salvarCardapio')
 Route::get('/cadastroProduto','ProdutoController@create')->name('cadastroProduto');
 Route::post('salvarProduto','ProdutoController@store')->name('salvarProduto');
 
-
-
+/* rota para gerenciar comentarios e respostas de comentarios */
+Route::get('acessarRespostas/{id}', 'EstabelecimentoController@detalhesComentario')->name('acessarRespostas');
+Route::post('responderComentario', 'EstabelecimentoController@responderComentario')->name('responderComentario');

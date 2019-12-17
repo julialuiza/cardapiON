@@ -28,7 +28,7 @@
 	          <div class="col-md-4 col-sm-12 mt-3">
 	            <p class="text-left">
 	              <b>Endereço:</b> {{$estab->endereco}} <br>
-	              <b>Nota média:</b> {{$estab->nota_media}} <br>
+	              <b>Nota média:</b> {{$estab->media_nota}} <br>
 	              <b>Faixa de preço:</b> {{$estab->classe}}<br>
 	              <b>Dias de funcionamento:</b> {{$estab->dias_funcionamento}}<br>
 	              <b>Horário de funcionamento:</b> {{$estab->horario_inicial}} às {{$estab->horario_final}}<br>
@@ -70,10 +70,10 @@
 	                  </p>
 	                  <div class="row">
 	                  	<div class="col-6">
-	                  		<a href="{{route('avaliarEstabelecimento', $estab->id_estabelecimento)}}" class="btn btn-sm btn-block bg-warning text-dark" role="button"><b>acessar respostas</b></a>
+	                  		<a href="{{route('acessarRespostas', $comentario->id_comentario)}}" class="btn btn-sm btn-block bg-warning text-dark" role="button"><b>acessar respostas</b></a>
 	                  	</div>
 	                  	<div class="col-6">
-	                  		<a href="{{route('avaliarEstabelecimento', $estab->id_estabelecimento)}}" class="btn btn-sm btn-block bg-warning text-dark" role="button"><b>responder comentário</b></a>
+	                  		<a href="{{route('acessarRespostas', $comentario->id_comentario)}}" class="btn btn-sm btn-block bg-warning text-dark" role="button"><b>responder comentário</b></a>
 	                  	</div>
 	                  </div>
 	                  <hr width="350px">

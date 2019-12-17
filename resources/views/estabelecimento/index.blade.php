@@ -10,7 +10,7 @@
 	  <div class="col-12">
 		<!-- form de busca-->
 		<form method="POST" action="#">
-		  <input class="form-control" type="search" placeholder="Nome do estabelecimento, faixa de preço ($, $$, $$$, $$$$ ou $$$$$$), pratos.." aria-label="Pesquisar">
+		  <input class="form-control" type="search" name="busca" placeholder="Nome do estabelecimento, faixa de preço ($, $$, $$$, $$$$ ou $$$$$$), pratos.." aria-label="Pesquisar">
 		  <button class="btn btn-sm btn-warning btn-block" type="submit"><b>PESQUISAR</b></button>
 		</form>
 	  </div> 
@@ -31,7 +31,7 @@
 					<p class="card-text">
 					  <b>Localização:</b> {{$estabelecimento->endereco}} <br>
 					  <b>Faixa de preço:</b> {{$estabelecimento->classe}} <br>
-					  <b>Nota média:</b> {{$estabelecimento->nota_media}}
+					  <b>Nota média:</b> {{$estabelecimento->media_nota}}
 					</p>
 				  </div>
 				  <div class="card-footer bg-dark">

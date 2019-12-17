@@ -7,6 +7,7 @@ use App\Estabelecimento;
 use App\Cardapio;
 use App\Comentario;
 use App\Nota;
+use App\RespostasComentario;
 
 class EstabelecimentoController extends Controller
 {
@@ -91,6 +92,42 @@ class EstabelecimentoController extends Controller
         $nota->nota = $request->input('nota');
         $nota->save();
 
+        //atualizando nota media do estabelecimento avaliado
+        $estabAvaliado =$request->input('idEstab');
+        $notaRecebida = $request->input('nota');
+        //somas de todas as notas recebidas
+        $comentarioEstab = Comentario::where('id_estabelecimento', $estabAvaliado)->get();
+        $somatotal = $comentarioEstab->sum('nota');
+
+        //qtd total de avaliacoess
+        $qtdAvaliacoes = Comentario::where('id_estabelecimento',$estabAvaliado)->count();
+        //somar com notas passadas / qtd total e atribuir a coluna de media_nota
+        $novaMedia = ($somatotal)/$qtdAvaliacoes;
+        Estabelecimento::where('id_estabelecimento',$estabAvaliado)
+                        ->update(['media_nota'=>$novaMedia]);
+
+        return redirect('/feed');
+    }
+
+
+    //acessar respostas a um comentario e poder responder tb
+    public function detalhesComentario($id){
+        $comentario = Comentario::where('id_comentario', $id)->get();
+        $respostas = RespostasComentario::where('id_comentario',$id)->get();
+
+        return view('estabelecimento/respostasComentario', compact('comentario','respostas'));
+    }
+
+
+    //responder um comentario
+    public function responderComentario(Request $request){
+        $resposta = new RespostasComentario();
+        $resposta->conteudo = $request->input('respComentario');
+        $resposta->id_estabelecimento = $request->input('idEstab');
+        $resposta->id_usuario = $request->input('idUsuario');
+        $resposta->id_comentario = $request->input('idComentario');
+
+        $resposta ->save();
         return redirect('/feed');
     }
 
