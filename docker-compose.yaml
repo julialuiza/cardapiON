@@ -1,0 +1,40 @@
+version: '3'
+
+services: 
+    app:
+        container_name: app
+        build: ./.docker
+        image: lino/laravel
+        working_dir: /var/www/html
+        depends_on: 
+            - mysql
+        ports: 
+            - "80:80"
+        volumes:
+            - .:/var/www/html
+        networks: 
+            - app-network
+
+            
+    mysql:
+        container_name: mysql   
+        image: mysql:5.7.22
+        ports: 
+            - "3306:3306"
+        volumes: 
+            - database:/var/lib/mysql:rw
+        environment: 
+            MYSQL_DATABASE: cardapion
+            MYSQL_ROOT_PASSWORD: 123456
+        networks: 
+            - app-network
+
+volumes:
+    database:
+        driver: local
+
+networks: 
+    app-network:
+        driver: bridge
+
+        
